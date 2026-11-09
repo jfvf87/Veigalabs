@@ -6,25 +6,29 @@
 <title>Veiga Labs</title>
 <meta name="description" content="Veiga Labs builds connected hardware and software for aquatic, agricultural and automotive systems.">
 <style>
-  :root { --bg:#0b0d10; --panel:#12161b; --line:#232a33; --text:#e8ecf1; --muted:#8b95a3; --accent:#4fd1c5; }
+  :root { --bg:#0d0c0a; --panel:#15130f; --line:#2a2720; --text:#efeae0; --muted:#9a9384; --accent:#d4a24c; }
   * { box-sizing:border-box; margin:0; padding:0; }
   html { scroll-behavior:smooth; }
   body { background:var(--bg); color:var(--text); font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif; line-height:1.6; }
-  header { position:fixed; top:0; left:0; right:0; display:flex; justify-content:space-between; align-items:center; padding:24px 48px; background:rgba(11,13,16,.8); backdrop-filter:blur(8px); z-index:10; }
-  .logo { font-weight:600; letter-spacing:.18em; text-transform:uppercase; font-size:14px; }
+  header { position:fixed; top:0; left:0; right:0; display:flex; justify-content:space-between; align-items:center; padding:24px 48px; background:rgba(13,12,10,.85); backdrop-filter:blur(8px); z-index:10; }
+  .logo { display:flex; align-items:center; gap:14px; font-weight:300; letter-spacing:.32em; text-transform:uppercase; font-size:14px; }
+  .logo svg { width:34px; height:34px; }
   nav a { color:var(--muted); text-decoration:none; margin-left:32px; font-size:14px; transition:color .2s; }
   nav a:hover { color:var(--text); }
-  section { max-width:1000px; margin:0 auto; padding:120px 32px; }
-  .hero { min-height:100vh; display:flex; flex-direction:column; justify-content:center; }
-  .hero h1 { font-size:clamp(36px,6vw,72px); font-weight:300; line-height:1.1; letter-spacing:-.02em; max-width:800px; }
+  section { max-width:1000px; margin:0 auto; padding:72px 32px; border-top:1px solid var(--line); }
+  .hero { min-height:68vh; display:flex; flex-direction:column; justify-content:center; padding-top:140px; border-top:none; }
+  .hero h1 { font-family:Georgia,'Times New Roman',serif; font-size:clamp(36px,6vw,68px); font-weight:400; line-height:1.12; letter-spacing:-.01em; max-width:800px; }
   .hero h1 span { color:var(--accent); }
+  .hero { position:relative; }
+  .hero .mark { position:absolute; right:32px; top:50%; transform:translateY(-45%); width:clamp(160px,26vw,320px); height:auto; opacity:.55; pointer-events:none; }
   .hero p { margin-top:28px; color:var(--muted); font-size:18px; max-width:540px; }
   .btn { display:inline-block; margin-top:40px; padding:14px 32px; border:1px solid var(--accent); color:var(--accent); text-decoration:none; font-size:14px; letter-spacing:.08em; text-transform:uppercase; transition:all .2s; width:fit-content; }
   .btn:hover { background:var(--accent); color:var(--bg); }
-  h2 { font-size:13px; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); font-weight:500; margin-bottom:48px; }
+  h2 { font-size:13px; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); font-weight:500; margin-bottom:32px; }
   .about p { font-size:22px; font-weight:300; max-width:720px; }
   .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1px; background:var(--line); border:1px solid var(--line); }
-  .card { background:var(--panel); padding:40px 32px; }
+  .card { background:var(--panel); padding:40px 32px; border-top:2px solid transparent; transition:border-color .2s; }
+  .card:hover { border-top-color:var(--accent); }
   .card h3 { font-weight:500; font-size:20px; margin-bottom:12px; }
   .card p { color:var(--muted); font-size:15px; }
   .tag { display:inline-block; margin-top:20px; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); }
@@ -36,13 +40,21 @@
   button { padding:14px 32px; background:transparent; border:1px solid var(--accent); color:var(--accent); font:inherit; font-size:14px; letter-spacing:.08em; text-transform:uppercase; cursor:pointer; width:fit-content; transition:all .2s; }
   button:hover { background:var(--accent); color:var(--bg); }
   footer { border-top:1px solid var(--line); padding:32px 48px; color:var(--muted); font-size:13px; text-align:center; }
-  @media (max-width:640px) { header { padding:20px 24px; } nav a { margin-left:18px; } section { padding:80px 24px; } }
+  @media (max-width:640px) { header { padding:20px 24px; } nav a { margin-left:18px; } section { padding:56px 24px; } .hero { min-height:auto; padding-top:110px; } .hero .mark { opacity:.18; right:16px; } }
 </style>
 </head>
 <body>
 
 <header>
-  <div class="logo">Veiga Labs</div>
+  <div class="logo">
+    <svg viewBox="0 0 40 40" fill="none" stroke="#d4a24c" stroke-width="1.5" aria-hidden="true">
+      <path d="M20 8 L9 30 M20 8 L31 30 M9 30 L31 30"/>
+      <circle cx="20" cy="8" r="3.5" fill="#0d0c0a"/>
+      <circle cx="9" cy="30" r="3.5" fill="#0d0c0a"/>
+      <circle cx="31" cy="30" r="3.5" fill="#d4a24c"/>
+    </svg>
+    Veiga Labs
+  </div>
   <nav>
     <a href="#about">About</a>
     <a href="#products">Products</a>
@@ -51,6 +63,12 @@
 </header>
 
 <section class="hero">
+  <svg class="mark" viewBox="0 0 120 120" fill="none" stroke="#d4a24c" stroke-width="1" aria-hidden="true">
+    <path d="M60 18 L22 94 M60 18 L98 94 M22 94 L98 94"/>
+    <circle cx="60" cy="18" r="7" fill="#0d0c0a"/>
+    <circle cx="22" cy="94" r="7" fill="#0d0c0a"/>
+    <circle cx="98" cy="94" r="7" fill="#d4a24c"/>
+  </svg>
   <h1>Intelligent systems for <span>living environments.</span></h1>
   <p>Veiga Labs designs connected hardware and software that monitor, automate and protect the systems people depend on.</p>
   <a class="btn" href="#products">Explore products</a>
@@ -66,7 +84,7 @@
   <div class="grid">
     <div class="card">
       <h3>AGIEV</h3>
-      <p>Monitoring and automation for aquariums and aquatic systems. Temperature, lighting, water level, remote control and much more.</p>
+      <p>Monitoring and automation for aquariums and aquatic systems. Temperature, lighting, water level and remote control.</p>
       <span class="tag">In development</span>
     </div>
     <div class="card">
@@ -92,7 +110,7 @@
   </form>
 </section>
 
-<footer>Â© 2026 Veiga Labs. All rights reserved.</footer>
+<footer>© 2026 Veiga Labs. All rights reserved.</footer>
 
 </body>
 </html>
