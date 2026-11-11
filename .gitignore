@@ -1,0 +1,25 @@
+# Material tecnico, privado ou sensivel - nunca publicar neste repositorio
+PRODUCTS/
+FUSION360/
+BRANDING/
+PRODUCT PHOTOS/
+COMPANY/INFRASTRUCTURE/
+*.stl
+*.3mf
+*.step
+*.f3d
+*.ino
+*.h
+*.cpp
+*.zip
+*.pdf
+*.doc
+*.docx
+*.xls
+*.xlsx
+*.env
+*.key
+*.pem
+*secret*
+*password*
+Infrastructure*
