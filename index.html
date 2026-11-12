@@ -33,6 +33,12 @@
   .card p { color:var(--muted); font-size:15px; }
   .tag { display:inline-block; margin-top:20px; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); }
   .tag.soon { color:var(--muted); }
+  .news-list { max-width:720px; }
+  .news-item { display:grid; grid-template-columns:130px 1fr; gap:8px 32px; padding:28px 0; border-top:1px solid var(--line); }
+  .news-item:first-child { border-top:none; padding-top:0; }
+  .news-item time { color:var(--accent); font-size:12px; letter-spacing:.14em; text-transform:uppercase; padding-top:4px; }
+  .news-item h3 { font-weight:500; font-size:20px; margin-bottom:6px; }
+  .news-item p { color:var(--muted); font-size:15px; }
   form { display:grid; gap:16px; max-width:520px; }
   input, textarea { width:100%; padding:14px 16px; background:var(--panel); border:1px solid var(--line); color:var(--text); font:inherit; font-size:15px; }
   input:focus, textarea:focus { outline:none; border-color:var(--accent); }
@@ -40,7 +46,7 @@
   button { padding:14px 32px; background:transparent; border:1px solid var(--accent); color:var(--accent); font:inherit; font-size:14px; letter-spacing:.08em; text-transform:uppercase; cursor:pointer; width:fit-content; transition:all .2s; }
   button:hover { background:var(--accent); color:var(--bg); }
   footer { border-top:1px solid var(--line); padding:32px 48px; color:var(--muted); font-size:13px; text-align:center; }
-  @media (max-width:640px) { header { padding:20px 24px; } nav a { margin-left:18px; } section { padding:56px 24px; } .hero { min-height:auto; padding-top:110px; } .hero .mark { opacity:.18; right:16px; } }
+  @media (max-width:640px) { .news-item { grid-template-columns:1fr; } header { padding:20px 24px; } nav a { margin-left:18px; } section { padding:56px 24px; } .hero { min-height:auto; padding-top:110px; } .hero .mark { opacity:.18; right:16px; } }
 </style>
 </head>
 <body>
@@ -58,6 +64,7 @@
   <nav>
     <a href="#about">About</a>
     <a href="#products">Products</a>
+    <a href="#news">News</a>
     <a href="#contact">Contact</a>
   </nav>
 </header>
@@ -100,6 +107,19 @@
       <p>Advanced diagnostics for automotive systems.</p>
       <span class="tag soon">Coming soon</span>
     </div>
+  </div>
+</section>
+
+<section id="news">
+  <h2>News</h2>
+  <div class="news-list">
+    <article class="news-item">
+      <time datetime="2026-11-12">12 Nov 2026</time>
+      <div>
+        <h3>AGIEV C1 enters testing</h3>
+        <p>The first AGIEV controller has reached the testing phase, a key step on the way to its release.</p>
+      </div>
+    </article>
   </div>
 </section>
 
