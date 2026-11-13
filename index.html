@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Veiga Labs</title>
-<meta name="description" content="Veiga Labs builds connected hardware and software for aquatic, agricultural and automotive systems.">
+<meta name="description" content="Veiga Labs is a group that builds and backs technology ventures: connected hardware, software and investments.">
 <style>
   :root { --bg:#0d0c0a; --panel:#15130f; --line:#2a2720; --text:#efeae0; --muted:#9a9384; --accent:#d4a24c; }
   * { box-sizing:border-box; margin:0; padding:0; }
@@ -16,37 +16,56 @@
   nav a { color:var(--muted); text-decoration:none; margin-left:32px; font-size:14px; transition:color .2s; }
   nav a:hover { color:var(--text); }
   section { max-width:1000px; margin:0 auto; padding:72px 32px; border-top:1px solid var(--line); }
-  .hero { min-height:68vh; display:flex; flex-direction:column; justify-content:center; padding-top:140px; border-top:none; }
-  .hero h1 { font-family:Georgia,'Times New Roman',serif; font-size:clamp(36px,6vw,68px); font-weight:400; line-height:1.12; letter-spacing:-.01em; max-width:800px; }
+  h2 { font-size:13px; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); font-weight:500; margin-bottom:32px; }
+
+  /* P1: rede de nos ligados (o grupo) */
+  .hero-wrap { position:relative; overflow:hidden; border-bottom:1px solid var(--line); }
+  .hero-wrap::before { content:""; position:absolute; inset:0; background:radial-gradient(ellipse at 78% 40%, rgba(212,162,76,.13), transparent 60%); }
+  .net { position:absolute; right:0; top:0; width:62%; height:100%; opacity:.9; pointer-events:none; }
+  .net line { stroke:#d4a24c; stroke-opacity:.28; stroke-width:1; }
+  .net circle { fill:#0d0c0a; stroke:#d4a24c; stroke-width:1.2; }
+  .net circle.hub { fill:#d4a24c; }
+  .net .pulse { fill:none; stroke:#d4a24c; stroke-opacity:.5; animation:ring 5s ease-out infinite; transform-box:fill-box; transform-origin:center; }
+  .net .pulse:nth-of-type(2){ animation-delay:1.7s } .net .pulse:nth-of-type(3){ animation-delay:3.4s }
+  @keyframes ring { 0%{transform:scale(.4);opacity:.8} 100%{transform:scale(3.2);opacity:0} }
+  .net g.nodes { animation:bob 14s ease-in-out infinite alternate; }
+  @keyframes bob { from{transform:translateY(-6px)} to{transform:translateY(6px)} }
+  .hero { position:relative; max-width:1000px; margin:0 auto; min-height:78vh; display:flex; flex-direction:column; justify-content:center; padding:140px 32px 120px; }
+  .hero h1 { font-family:Georgia,'Times New Roman',serif; font-size:clamp(36px,6vw,66px); font-weight:400; line-height:1.12; letter-spacing:-.01em; max-width:720px; }
   .hero h1 span { color:var(--accent); }
-  .hero { position:relative; }
-  .hero .mark { position:absolute; right:32px; top:50%; transform:translateY(-45%); width:clamp(160px,26vw,320px); height:auto; opacity:.55; pointer-events:none; }
   .hero p { margin-top:28px; color:var(--muted); font-size:18px; max-width:540px; }
   .btn { display:inline-block; margin-top:40px; padding:14px 32px; border:1px solid var(--accent); color:var(--accent); text-decoration:none; font-size:14px; letter-spacing:.08em; text-transform:uppercase; transition:all .2s; width:fit-content; }
   .btn:hover { background:var(--accent); color:var(--bg); }
-  h2 { font-size:13px; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); font-weight:500; margin-bottom:32px; }
-  .about p { font-size:22px; font-weight:300; max-width:720px; }
-  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1px; background:var(--line); border:1px solid var(--line); }
-  .card { background:var(--panel); padding:40px 32px; border-top:2px solid transparent; transition:border-color .2s; }
+
+  /* P2: o que fazemos */
+  .what p.lead { font-size:22px; font-weight:300; max-width:720px; margin-bottom:40px; }
+  .pillars { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1px; background:var(--line); border:1px solid var(--line); }
+  .pillar { background:var(--panel); padding:36px 30px; }
+  .pillar svg { width:48px; height:48px; stroke:var(--accent); fill:none; stroke-width:1.3; stroke-linecap:round; stroke-linejoin:round; margin-bottom:18px; }
+  .pillar h3 { font-weight:500; font-size:19px; margin-bottom:10px; }
+  .pillar p { color:var(--muted); font-size:15px; }
+
+  /* P3: portfolio */
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1px; background:var(--line); border:1px solid var(--line); }
+  .card { background:var(--panel); padding:36px 28px; border-top:2px solid transparent; transition:border-color .2s; }
   .card:hover { border-top-color:var(--accent); }
-  .card h3 { font-weight:500; font-size:20px; margin-bottom:12px; }
+  .card svg.ico { width:52px; height:52px; margin-bottom:20px; stroke:var(--accent); fill:none; stroke-width:1.3; stroke-linecap:round; stroke-linejoin:round; }
+  .card h3 { font-weight:500; font-size:20px; margin-bottom:10px; }
   .card p { color:var(--muted); font-size:15px; }
-  .tag { display:inline-block; margin-top:20px; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); }
+  .kind { display:block; font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:var(--muted); margin-bottom:10px; }
+  .tag { display:inline-block; margin-top:18px; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); }
   .tag.soon { color:var(--muted); }
-  .news-list { max-width:720px; }
-  .news-item { display:grid; grid-template-columns:130px 1fr; gap:8px 32px; padding:28px 0; border-top:1px solid var(--line); }
-  .news-item:first-child { border-top:none; padding-top:0; }
-  .news-item time { color:var(--accent); font-size:12px; letter-spacing:.14em; text-transform:uppercase; padding-top:4px; }
-  .news-item h3 { font-weight:500; font-size:20px; margin-bottom:6px; }
-  .news-item p { color:var(--muted); font-size:15px; }
-  form { display:grid; gap:16px; max-width:520px; }
-  input, textarea { width:100%; padding:14px 16px; background:var(--panel); border:1px solid var(--line); color:var(--text); font:inherit; font-size:15px; }
-  input:focus, textarea:focus { outline:none; border-color:var(--accent); }
-  textarea { min-height:140px; resize:vertical; }
-  button { padding:14px 32px; background:transparent; border:1px solid var(--accent); color:var(--accent); font:inherit; font-size:14px; letter-spacing:.08em; text-transform:uppercase; cursor:pointer; width:fit-content; transition:all .2s; }
-  button:hover { background:var(--accent); color:var(--bg); }
+  .note { margin-top:18px; color:var(--muted); font-size:13px; }
+
+  /* faixa low profile: fina, escurecida e dessaturada, para nao competir com o texto */
+  .photo-band { position:relative; height:150px; border-top:1px solid var(--line); border-bottom:1px solid var(--line); overflow:hidden; background:#0d0c0a; }
+  .photo-band img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 60%; filter:grayscale(.7) brightness(.45) contrast(1.1); }
+  .photo-band::before { content:""; position:absolute; inset:0; z-index:1; background:linear-gradient(90deg, rgba(13,12,10,.85), rgba(13,12,10,.25) 50%, rgba(13,12,10,.85)), linear-gradient(180deg, rgba(212,162,76,.12), transparent 60%); }
+  @media (max-width:760px){ .photo-band{height:110px} }
+
   footer { border-top:1px solid var(--line); padding:32px 48px; color:var(--muted); font-size:13px; text-align:center; }
-  @media (max-width:640px) { .news-item { grid-template-columns:1fr; } header { padding:20px 24px; } nav a { margin-left:18px; } section { padding:56px 24px; } .hero { min-height:auto; padding-top:110px; } .hero .mark { opacity:.18; right:16px; } }
+  @media (max-width:760px){ header{padding:20px 24px} nav a{margin-left:18px} section{padding:56px 24px} .hero{padding:110px 24px 90px;min-height:auto} .net{width:100%;opacity:.35} }
+  @media (prefers-reduced-motion:reduce){ .net .pulse,.net g.nodes{animation:none} }
 </style>
 </head>
 <body>
@@ -55,85 +74,151 @@
   <div class="logo">
     <svg viewBox="0 0 40 40" fill="none" stroke="#d4a24c" stroke-width="1.5" aria-hidden="true">
       <path d="M20 8 L9 30 M20 8 L31 30 M9 30 L31 30"/>
-      <circle cx="20" cy="8" r="3.5" fill="#0d0c0a"/>
-      <circle cx="9" cy="30" r="3.5" fill="#0d0c0a"/>
-      <circle cx="31" cy="30" r="3.5" fill="#d4a24c"/>
+      <circle cx="20" cy="8" r="3.5" fill="#0d0c0a"/><circle cx="9" cy="30" r="3.5" fill="#0d0c0a"/><circle cx="31" cy="30" r="3.5" fill="#d4a24c"/>
     </svg>
     Veiga Labs
   </div>
-  <nav>
-    <a href="#about">About</a>
-    <a href="#products">Products</a>
-    <a href="#news">News</a>
-    <a href="#contact">Contact</a>
-  </nav>
+  <nav><a href="#what">What we do</a><a href="#portfolio">Portfolio</a><a href="#news">News</a><a href="#ideas">Ideas</a><a href="#work">Work with us</a><a href="#contact">Contact</a></nav>
 </header>
 
-<section class="hero">
-  <svg class="mark" viewBox="0 0 120 120" fill="none" stroke="#d4a24c" stroke-width="1" aria-hidden="true">
-    <path d="M60 18 L22 94 M60 18 L98 94 M22 94 L98 94"/>
-    <circle cx="60" cy="18" r="7" fill="#0d0c0a"/>
-    <circle cx="22" cy="94" r="7" fill="#0d0c0a"/>
-    <circle cx="98" cy="94" r="7" fill="#d4a24c"/>
+<div class="hero-wrap">
+  <svg class="net" viewBox="0 0 600 600" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+    <g class="nodes">
+      <line x1="300" y1="300" x2="130" y2="140"/><line x1="300" y1="300" x2="470" y2="120"/><line x1="300" y1="300" x2="520" y2="330"/>
+      <line x1="300" y1="300" x2="420" y2="500"/><line x1="300" y1="300" x2="150" y2="450"/><line x1="130" y1="140" x2="470" y2="120"/>
+      <line x1="470" y1="120" x2="520" y2="330"/><line x1="520" y1="330" x2="420" y2="500"/><line x1="420" y1="500" x2="150" y2="450"/>
+      <circle cx="130" cy="140" r="9"/><circle cx="470" cy="120" r="12"/><circle cx="520" cy="330" r="9"/>
+      <circle cx="420" cy="500" r="11"/><circle cx="150" cy="450" r="8"/>
+      <circle class="pulse" cx="300" cy="300" r="14"/><circle class="pulse" cx="300" cy="300" r="14"/><circle class="pulse" cx="300" cy="300" r="14"/>
+      <circle class="hub" cx="300" cy="300" r="14"/>
+    </g>
   </svg>
-  <h1>Intelligent systems for <span>living environments.</span></h1>
-  <p>Veiga Labs designs connected hardware and software that monitor, automate and protect the systems people depend on.</p>
-  <a class="btn" href="#products">Explore products</a>
+  <section class="hero" style="border-top:none">
+    <h1>Building and backing <span>technology ventures.</span></h1>
+    <p>Veiga Labs is a group that creates hardware and software, and invests in ideas and businesses that make everyday systems smarter.</p>
+    <a class="btn" href="#portfolio">See the portfolio</a>
+  </section>
+</div>
+
+<section id="what" class="what">
+  <h2>What we do</h2>
+  <p class="lead">One group, three ways of creating value.</p>
+  <div class="pillars">
+    <div class="pillar">
+      <svg viewBox="0 0 48 48" aria-hidden="true"><rect x="12" y="12" width="24" height="24" rx="3"/><path d="M18 4v8M24 4v8M30 4v8M18 36v8M24 36v8M30 36v8M4 18h8M4 24h8M4 30h8M36 18h8M36 24h8M36 30h8"/></svg>
+      <h3>Connected hardware</h3><p>Devices designed in-house that monitor, automate and protect real-world systems.</p>
+    </div>
+    <div class="pillar">
+      <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M16 14 L6 24 L16 34 M32 14 L42 24 L32 34 M28 10 L20 38"/></svg>
+      <h3>Software</h3><p>Apps, platforms and tools: the software behind our own products and operations, and solutions that stand on their own.</p>
+    </div>
+    <div class="pillar">
+      <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M6 38 L18 24 L26 31 L42 12"/><path d="M33 12 H42 V21"/></svg>
+      <h3>Investments</h3><p>We back promising ideas and businesses, from early concepts to established projects.</p>
+    </div>
+  </div>
 </section>
 
-<section id="about" class="about">
-  <h2>About</h2>
-  <p>Veiga Labs exists because the things people care for most are the ones that ask for the most attention, and every one of them depends on details that never stop mattering.</p>
-  <p>Driven by the belief that technology should bring peace of mind, Veiga Labs creates connected systems that watch, respond and protect, so that caring for something never means being there every minute.</p>
-  <p>Every product begins with the same motivation: to overcome any challenge that stands between people and what matters to them.</p>
-</section>
-
-<section id="products">
-  <h2>Products</h2>
+<section id="portfolio" >
+  <h2>Portfolio</h2>
   <div class="grid">
-    <a class="card" href="https://jfvf87.github.io/AGIEV/" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;cursor:pointer">
-      <h3>AGIEV</h3>
-      <p>Monitoring and automation for aquariums and aquatic systems. Temperature, lighting, water level and remote control.</p>
+    <a class="card" href="https://jfvf87.github.io/AGIEV/" target="_blank" rel="noopener" style="text-decoration:none;color:inherit">
+      <span class="kind">Hardware</span>
+      <svg class="ico" viewBox="0 0 56 56" aria-hidden="true"><rect x="6" y="14" width="44" height="32" rx="3"/><path d="M6 26 q7 -5 14 0 t14 0 t16 0"/><circle cx="18" cy="35" r="1.6"/><circle cx="30" cy="38" r="1.2"/></svg>
+      <h3>AGIEV</h3><p>Monitoring and automation for aquariums and aquatic systems.</p>
       <span class="tag">In development</span>
-      <p><strong>Visit the AGIEV page &rarr;</strong></p>
     </a>
     <div class="card">
-      <h3>GrowPro</h3>
-      <p>Precision control for hydroponic growing environments.</p>
+      <span class="kind">Hardware</span>
+      <svg class="ico" viewBox="0 0 56 56" aria-hidden="true"><path d="M28 50 V24"/><path d="M28 32 C16 32 12 22 12 14 C22 14 28 20 28 32Z"/><path d="M28 26 C38 26 44 18 44 10 C34 10 28 16 28 26Z"/></svg>
+      <h3>GrowPro</h3><p>Precision control for hydroponics, gardens and plant growing environments.</p>
       <span class="tag soon">Coming soon</span>
     </div>
     <div class="card">
-      <h3>SyncMaster</h3>
-      <p>Advanced diagnostics for automotive systems.</p>
+      <span class="kind">Hardware</span>
+      <svg class="ico" viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="9"/><path d="M28 6 v8 M28 42 v8 M6 28 h8 M42 28 h8 M12.5 12.5 l5.6 5.6 M37.9 37.9 l5.6 5.6 M43.5 12.5 l-5.6 5.6 M18.1 37.9 l-5.6 5.6"/></svg>
+      <h3>SyncMaster</h3><p>Advanced diagnostics for automotive systems.</p>
       <span class="tag soon">Coming soon</span>
     </div>
+    <div class="card">
+      <span class="kind">Hardware</span>
+      <svg class="ico" viewBox="0 0 56 56" aria-hidden="true"><path d="M8 28 C8 15 17 8 28 8 C39 8 48 15 48 28 Z"/><path d="M22 28 V42 C22 46 34 46 34 42 V28"/><circle cx="19" cy="19" r="1.5"/><circle cx="31" cy="15" r="1.5"/><circle cx="38" cy="23" r="1.5"/></svg>
+      <h3>ALLID</h3><p>Automation for mushroom production.</p>
+      <span class="tag soon">Idea</span>
+    </div>
+    <div class="card">
+      <span class="kind">Software</span>
+      <svg class="ico" viewBox="0 0 56 56" aria-hidden="true"><path d="M8 26 L28 8 L48 26"/><path d="M13 22 V46 H43 V22"/><path d="M23 46 V32 H33 V46"/></svg>
+      <h3>INAD</h3><p>Property management software: rents, tenant communication, expenses and everything around letting a home.</p>
+      <span class="tag soon">In planning</span>
+    </div>
+  </div>
+  <p class="note">The portfolio grows over time: software products and investments will join it as they are ready to be shown.</p>
+</section>
+
+<div class="photo-band">
+  <img src="images/skyline-night.jpg" alt="">
+</div>
+
+<section id="news"><h2>News</h2>
+  <div style="max-width:720px;display:grid;grid-template-columns:130px 1fr;gap:8px 32px">
+    <time style="color:var(--accent);font-size:12px;letter-spacing:.14em;text-transform:uppercase;padding-top:4px">12 Nov 2026</time>
+    <div><h3 style="font-weight:500;font-size:20px;margin-bottom:6px">AGIEV C1 enters testing</h3><p style="color:var(--muted);font-size:15px">The first AGIEV controller has reached the testing phase, a key step on the way to its release.</p></div>
   </div>
 </section>
 
-<section id="news">
-  <h2>News</h2>
-  <div class="news-list">
-    <article class="news-item">
-      <time datetime="2026-11-12">12 Nov 2026</time>
-      <div>
-        <h3>AGIEV C1 enters testing</h3>
-        <p>The first AGIEV controller has reached the testing phase, a key step on the way to its release.</p>
-      </div>
-    </article>
+<section id="ideas" >
+  <h2>Ideas</h2>
+  <p style="font-size:22px;font-weight:300;max-width:720px;margin-bottom:12px">Ideas we think are worth building. If one of them is yours to take on, let's talk.</p>
+  <p class="note" style="margin:0 0 28px">Only ideas we are happy to share are listed here.</p>
+  <div class="grid">
+    <div class="card"><span class="kind">Idea · Hardware</span><h3>Cold-chain monitor</h3><p>Low-cost temperature tracking for small food producers, with alerts to the phone.</p><a href="#contact" style="display:inline-block;margin-top:16px;color:#d4a24c;font-size:13px;text-decoration:none;letter-spacing:.08em">I want to build this &rarr;</a></div>
+    <div class="card"><span class="kind">Idea · Software</span><h3>Local market app</h3><p>A simple way for small growers to list weekly produce to nearby buyers.</p><a href="#contact" style="display:inline-block;margin-top:16px;color:#d4a24c;font-size:13px;text-decoration:none;letter-spacing:.08em">I want to build this &rarr;</a></div>
+    <div class="card"><span class="kind">Idea · Investment</span><h3>Shared workshop</h3><p>A shared space with tools for makers and small hardware startups.</p><a href="#contact" style="display:inline-block;margin-top:16px;color:#d4a24c;font-size:13px;text-decoration:none;letter-spacing:.08em">I want to build this &rarr;</a></div>
   </div>
 </section>
 
-<section id="contact">
+<section id="work" >
+  <h2>Work with us</h2>
+  <p class="lead" style="font-size:22px;font-weight:300;max-width:720px;margin-bottom:28px">Have a project that needs technology behind it? We would like to hear about it.</p>
+  <div class="pillars" style="margin-bottom:28px">
+    <div class="pillar"><h3>What we look for</h3><p>Ideas and projects in any sector where technology (hardware, software or automation) can make a real difference. Outside that, we look at each case on its own merits.</p></div>
+    <div class="pillar"><h3>What we can offer</h3><p>Funding and equity participation, technical development, and access to suppliers and production, with a partner who has launched products.</p></div>
+    <div class="pillar"><h3>How it works</h3><p>Send us a short summary. We read every message and, when there is a fit, we talk about the best way to work together: funding, development, partnership or participation.</p></div>
+  </div>
+</section>
+
+<section id="contact" >
   <h2>Contact</h2>
-  <form action="https://formspree.io/f/xpppvzvw" method="POST">
-    <input type="text" name="name" placeholder="Name" required>
-    <input type="email" name="email" placeholder="Email" required>
-    <textarea name="message" placeholder="How can we help?" required></textarea>
-    <button type="submit">Send message</button>
+  <form action="https://formspree.io/f/xpppvzvw" method="POST" style="display:grid;gap:16px;max-width:520px">
+    <select name="subject" required style="width:100%;padding:14px 16px;background:var(--panel);border:1px solid var(--line);color:var(--text);font:inherit;font-size:15px">
+      <option value="" disabled selected>Subject</option>
+      <option>General enquiry</option>
+      <option>Project proposal</option>
+      <option>Partnership</option>
+      <option>Press</option>
+    </select>
+    <input type="text" name="name" placeholder="Name" required style="width:100%;padding:14px 16px;background:var(--panel);border:1px solid var(--line);color:var(--text);font:inherit;font-size:15px">
+    <input type="email" name="email" placeholder="Email" required style="width:100%;padding:14px 16px;background:var(--panel);border:1px solid var(--line);color:var(--text);font:inherit;font-size:15px">
+    <input type="url" name="link" placeholder="Link to your project (optional)" style="width:100%;padding:14px 16px;background:var(--panel);border:1px solid var(--line);color:var(--text);font:inherit;font-size:15px">
+    <textarea name="message" placeholder="How can we help? For project proposals, a short summary is enough." required style="width:100%;min-height:140px;padding:14px 16px;background:var(--panel);border:1px solid var(--line);color:var(--text);font:inherit;font-size:15px;resize:vertical"></textarea>
+    <p style="color:var(--muted);font-size:13px">Please do not send confidential or proprietary information in your first message. Sending an idea does not create any obligation or rights for either side, and we cannot guarantee a reply.</p>
+    <label style="color:var(--muted);font-size:13px;display:flex;gap:10px;align-items:flex-start"><input type="checkbox" required style="width:auto;margin-top:4px"> I agree that Veiga Labs may use my details to reply to this message.</label>
+    <button type="submit" style="padding:14px 32px;background:transparent;border:1px solid var(--accent);color:var(--accent);font:inherit;font-size:14px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;width:fit-content">Send message</button>
   </form>
 </section>
-
 <footer>© 2026 Veiga Labs. All rights reserved.</footer>
+<script>
+document.querySelectorAll('#ideas .card a').forEach(function(a){
+  a.addEventListener('click',function(){
+    var s=document.querySelector('select[name=subject]'),m=document.querySelector('textarea[name=message]');
+    var t=a.parentNode.querySelector('h3').textContent;
+    if(s)s.value='Project proposal';
+    if(m&&!m.value)m.value='Idea: '+t+'
 
+';
+  });
+});
+</script>
 </body>
 </html>
